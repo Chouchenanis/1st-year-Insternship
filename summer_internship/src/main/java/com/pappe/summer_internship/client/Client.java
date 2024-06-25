@@ -1,29 +1,63 @@
 package com.pappe.summer_internship.client;
 
-import java.time.LocalDate;
+import jakarta.persistence.*;
 
+
+@Entity
+@Table(name = "Client")
 public class Client {
 
+    @Id
+    @GeneratedValue
+    private Integer id;
 
     private String firstname;
 
     private String lastname;
 
-    private LocalDate date;
+    private String birthDate;
 
+    @Column(unique = true)
     private String email;
 
-    private int age;
+    private String civilState;
 
-    public Client(String firstname, String lastname, LocalDate date, String email, int age) {
+    @Column(unique = true)
+    private String cin;
+
+    @Column(unique = true)
+    private String phone;
+
+    private String gender ;
+
+    private String creationDate;
+
+    private String updateDate;
+
+
+    public Client(Integer id, String firstname, String lastname, String birthDate, String email, String civilState, String cin, String phone, String gender, String creationDate, String updateDate) {
+        this.id = id;
         this.firstname = firstname;
         this.lastname = lastname;
-        this.date = date;
+        this.birthDate = birthDate;
         this.email = email;
-        this.age = age;
+        this.civilState = civilState;
+        this.cin = cin;
+        this.phone = phone;
+        this.gender = gender;
+        this.creationDate = creationDate;
+        this.updateDate = updateDate;
     }
 
     public Client() {}
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
     public String getFirstname() {
         return firstname;
@@ -41,12 +75,12 @@ public class Client {
         this.lastname = lastname;
     }
 
-    public LocalDate getDate() {
-        return date;
+    public String getBirthDate() {
+        return birthDate;
     }
 
-    public void setDate(LocalDate date) {
-        this.date = date;
+    public void setBirthDate(String date) {
+        this.birthDate = date;
     }
 
     public String getEmail() {
@@ -57,11 +91,51 @@ public class Client {
         this.email = email;
     }
 
-    public int getAge() {
-        return age;
+    public String getCivilState() {
+        return civilState;
     }
 
-    public void setAge(int age) {
-        this.age = age;
+    public void setCivilState(String civilState) {
+        this.civilState = civilState;
+    }
+
+    public String getCin() {
+        return cin;
+    }
+
+    public void setCin(String cin) {
+        this.cin = cin;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public String getCreationDate() {
+        return creationDate;
+    }
+
+    public void setCreationDate(String creationDate) {
+        this.creationDate = creationDate;
+    }
+
+    public String getUpdateDate() {
+        return updateDate;
+    }
+
+    public void setUpdateDate(String updateDate) {
+        this.updateDate = updateDate;
     }
 }
