@@ -3,6 +3,7 @@ package com.pappe.summer_internship.client;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -38,6 +39,7 @@ public class DBClientService implements ClientService {
             throw new RuntimeException("Client not found with id " + client.getId());
         }
         client.setId(id) ;
+        client.setUpdateDate(LocalDate.now());
         return repository.save(client);
     }
 

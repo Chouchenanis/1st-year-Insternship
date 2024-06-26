@@ -1,6 +1,8 @@
 package com.pappe.summer_internship.client;
 
 import org.springframework.stereotype.Repository;
+
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 import java.util.List;
@@ -35,7 +37,7 @@ public class InMemoryClientDao {
                 existingClient.setEmail(c.getEmail());
                 existingClient.setCivilState(c.getCivilState());
                 existingClient.setPhone(c.getPhone());
-                existingClient.setUpdateDate(c.getUpdateDate());
+                existingClient.setUpdateDate(LocalDate.now());
                 return existingClient;
             }
             return null;
