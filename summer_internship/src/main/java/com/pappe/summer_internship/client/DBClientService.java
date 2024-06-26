@@ -33,10 +33,11 @@ public class DBClientService implements ClientService {
     }
 
     @Override
-    public Client update(Client client) {
-        if (!repository.existsById(client.getId())) {
+    public Client update(Integer id ,Client client) {
+        if (!repository.existsById(id)){
             throw new RuntimeException("Client not found with id " + client.getId());
         }
+        client.setId(id) ;
         return repository.save(client);
     }
 

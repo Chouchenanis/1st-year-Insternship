@@ -25,8 +25,8 @@ public class InMemoryClientService implements ClientService {
     }
 
     @Override
-    public Client update(Client c) {
-        return dao.update(c);
+    public Client update(Integer id ,Client c) {
+        return dao.update(id,c);
     }
 
     @Override

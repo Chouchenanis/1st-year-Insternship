@@ -10,7 +10,7 @@ public interface ClientService {
 
     Client findById(Integer id);
 
-    Client update(Client c);
+    Client update(Integer id ,Client c);
 
     void deleteById(Integer id);
 }

@@ -23,17 +23,29 @@ public class InMemoryClientDao {
                 .orElse(null);
     }
 
-    public Client update(Client c) {
-        var clientIndex = IntStream.range(0, clients.size())
-                .filter(i -> clients.get(i).getId().equals(c.getId()))
-                .findFirst()
-                .orElse(-1);
-        if (clientIndex > -1) {
-            clients.set(clientIndex, c);
-            return c;
-        }
-        return null;
+    public Client update(Integer id, Client c) {
+            var clientIndex = IntStream.range(0, clients.size())
+                    .filter(i -> clients.get(i).getId().equals(id))
+                    .findFirst()
+                    .orElse(-1);
+            if (clientIndex >= 0) {
+                c.setId(id);
+                Client existingClient = clients.get(clientIndex);
+                existingClient.setFirstname(c.getFirstname());
+                existingClient.setLastname(c.getLastname());
+                existingClient.setBirthDate(c.getBirthDate());
+                existingClient.setEmail(c.getEmail());
+                existingClient.setCivilState(c.getCivilState());
+                existingClient.setCin(c.getCin());
+                existingClient.setPhone(c.getPhone());
+                existingClient.setGender(c.getGender());
+                existingClient.setCreationDate(c.getCreationDate());
+                existingClient.setUpdateDate(c.getUpdateDate());
+                return existingClient;
+            }
+            return null;
     }
+
 
     public void deleteById(Integer id) {
         var client = findById(id);
