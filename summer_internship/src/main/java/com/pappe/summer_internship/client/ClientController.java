@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.*;
 
+import jakarta.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -18,7 +19,7 @@ public class ClientController {
     }
 
     @PostMapping("/save")
-    public Client save(@RequestBody Client client) {
+    public Client save(@Valid @RequestBody Client client) {
         return service.save(client);
     }
 
@@ -33,7 +34,7 @@ public class ClientController {
     }
 
     @PutMapping("/update/{id}")
-    public Client update(@PathVariable Integer id , @RequestBody Client client) {
+    public Client update(@PathVariable Integer id ,@Valid @RequestBody Client client) {
         return service.update(id,client);
     }
 

@@ -31,15 +31,10 @@ public class InMemoryClientDao {
             if (clientIndex >= 0) {
                 c.setId(id);
                 Client existingClient = clients.get(clientIndex);
-                existingClient.setFirstname(c.getFirstname());
                 existingClient.setLastname(c.getLastname());
-                existingClient.setBirthDate(c.getBirthDate());
                 existingClient.setEmail(c.getEmail());
                 existingClient.setCivilState(c.getCivilState());
-                existingClient.setCin(c.getCin());
                 existingClient.setPhone(c.getPhone());
-                existingClient.setGender(c.getGender());
-                existingClient.setCreationDate(c.getCreationDate());
                 existingClient.setUpdateDate(c.getUpdateDate());
                 return existingClient;
             }

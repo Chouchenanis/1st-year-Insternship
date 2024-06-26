@@ -1,7 +1,8 @@
 package com.pappe.summer_internship.client;
 
 import jakarta.persistence.*;
-
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
 
 @Entity
 @Table(name = "Client")
@@ -11,20 +12,26 @@ public class Client {
     @GeneratedValue
     private Integer id;
 
+    @NotBlank(message = "First name is required")
     private String firstname;
 
+    @NotBlank(message = "Last name is required")
     private String lastname;
 
+    @NotBlank(message = "The birth date is required")
     private String birthDate;
 
+    @Email(message = "Email should be valid")
     @Column(unique = true)
     private String email;
 
     private String civilState;
 
+    @NotBlank(message = "The cin is required")
     @Column(unique = true)
     private String cin;
 
+    @NotBlank(message = "The phone number is required")
     @Column(unique = true)
     private String phone;
 
