@@ -19,6 +19,7 @@ public class DBClientService implements ClientService {
 
     @Override
     public Client save(Client client) {
+        client.setCreationDate(LocalDate.now());
         return repository.save(client);
     }
 

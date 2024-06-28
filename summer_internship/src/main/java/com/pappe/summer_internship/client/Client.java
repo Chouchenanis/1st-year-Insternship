@@ -46,7 +46,7 @@ public class Client {
     private LocalDate updateDate;
 
 
-    public Client(Integer id, String firstname, String lastname, String birthDate, String email, String civilState, String cin, String phone, String gender, LocalDate updateDate) {
+    public Client(Integer id, String firstname, String lastname, String birthDate, String email, String civilState, String cin, String phone, String gender,LocalDate creationDate, LocalDate updateDate) {
         this.id = id;
         this.firstname = firstname;
         this.lastname = lastname;
@@ -56,12 +56,11 @@ public class Client {
         this.cin = cin;
         this.phone = phone;
         this.gender = gender;
-        this.creationDate = LocalDate.now();;
+        this.creationDate = creationDate;;
         this.updateDate = updateDate;
     }
 
     public Client() {
-        this.creationDate = LocalDate.now();
     }
 
     public Integer getId() {

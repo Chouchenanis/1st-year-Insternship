@@ -14,6 +14,7 @@ public class InMemoryClientDao {
     private final List<Client> clients = new ArrayList<>();
 
     public Client save(Client c) {
+        c.setCreationDate(LocalDate.now());
         clients.add(c);
         return c;
     }
